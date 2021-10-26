@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Medicamentos>
+    <medicamento>
+        <Nombre>Ibuprofeno</Nombre>
+        <Precio>2.0</Precio>
+        <Codigo>1</Codigo>
+        <Stock>23</Stock>
+        <StockMaximo>25</StockMaximo>
+        <StockMinimo>10</StockMinimo>
+        <CodigoProveedor>546</CodigoProveedor>
+    </medicamento>
+    <medicamento>
+        <Nombre>Paracetamol</Nombre>
+        <Precio>2.5</Precio>
+        <Codigo>2</Codigo>
+        <Stock>15</Stock>
+        <StockMaximo>25</StockMaximo>
+        <StockMinimo>10</StockMinimo>
+        <CodigoProveedor>558</CodigoProveedor>
+    </medicamento>
+    <medicamento>
+        <Nombre>Dalsy</Nombre>
+        <Precio>9.5</Precio>
+        <Codigo>3</Codigo>
+        <Stock>10</Stock>
+        <StockMaximo>15</StockMaximo>
+        <StockMinimo>5</StockMinimo>
+        <CodigoProveedor>632</CodigoProveedor>
+    </medicamento>
+</Medicamentos>

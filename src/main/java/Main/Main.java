@@ -9,6 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -32,28 +33,99 @@ import org.xml.sax.SAXException;
 
 import com.thoughtworks.xstream.XStream;
 
+import dao.FarmaciaDOM;
+import dao.JCCPokemonDAO;
+import dao.JCCPokemonJAXB;
+import dao.MedicamentoAleatorio;
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import jakarta.xml.bind.Unmarshaller;
 import modelo.Empleado;
 import modelo.Empresa;
+import modelo.Farmacia;
+import modelo.JCCPokemon;
+import modelo.Medicamento;
+import modelo.Pokemon;
 
 class Main {
 
 	private static final String JAXB_XML_FILE = "xml/EmpresaJAXB.xml";
 	private static final String XSTREAM_XML_FILE = "xml/EmpresaXTREAM.xml";
-	private static final String DOM_XML_FILE = "xml/EmpleadosDOM.xml";
+	private static final String DOM_XML = "xml/FarmaciaDOM.xml";
 
 	public static void main(String[] args) {
 		// ejemploJaxb();
 		// ejemploEscribirDOM();
-		// ejemploLeerDOM();
+		//ejemploLeerDOM();
 		// ejemploEscribirXSTREAM();
 		// ejemploLeerXSTREAM();
+		
+		Medicamento med = new Medicamento("Ibuprofeno", 2.00, 1, 23, 25, 10, 546);
+		Medicamento med2 = new Medicamento("Paracetamol", 2.50, 2, 15, 25, 10, 558);
+		Medicamento med3 = new Medicamento("Dalsy", 9.50, 3, 10, 15, 5, 632);
+		
+		
+		MedicamentoAleatorio medAl = new MedicamentoAleatorio();
+		Farmacia farmacia1 = new Farmacia();
+		FarmaciaDOM farmaciaDOM = new FarmaciaDOM();
+		
+		//guardar un medicamento
+		medAl.guardar(med);
+		medAl.guardar(med2);
+		medAl.guardar(med3);
+		
+		//buscar un medicamento
+		/*System.out.println(medAl.buscar(1));
+		System.out.println(medAl.buscar(2));
+		System.out.println(medAl.buscar(3));
+		
+		//actualizar un medicamento
+		medAl.actualizar(med2);
+		
+		//buscar un medicamento
+		System.out.println(medAl.buscar(2));
+		
+		//borrar un medicamento
+		medAl.borrar(med3);
+		
+		//buscar un medicamento
+		System.out.println(medAl.buscar(1));
+		System.out.println(medAl.buscar(2));
+		System.out.println(medAl.buscar(3));*/
+		
+		//Clase farmacia, guardar medicamentos
+		farmacia1.guardar(med);
+		farmacia1.guardar(med2);
+		farmacia1.guardar(med3);
+	
+		//Clase farmaciaDOM
+		farmaciaDOM.guardar(farmacia1);
+		farmaciaDOM.leer(Paths.get(DOM_XML));
+		
+		//JCCPokemonJABX
+		/*
+		 * JCCPokemonJAXB xa = new JCCPokemonJAXB();
+		JCCPokemon po = new JCCPokemon(new Date(System.currentTimeMillis()),5000);
+		List<Pokemon> listPo = new ArrayList<>();
+		listPo.add(new Pokemon("Chorizor", 500));
+		po.setPokemones(listPo);
+		xa.guardar(po);
+		xa.leer();
+		 */
+		List<Pokemon> arrayPokemon = new ArrayList<>();
+		JCCPokemonJAXB pokemonJAXB = new JCCPokemonJAXB();
+		JCCPokemon pokemon = new JCCPokemon(new Date(System.currentTimeMillis()),5000);
+		
+		arrayPokemon.add(new Pokemon("Pikachu", 256));
+		pokemon.setPokemones(arrayPokemon);
+		pokemonJAXB.guardar(pokemon);
+		pokemonJAXB.leer();
+				
 	}
+	
 
-	private static void ejemploEscribirXSTREAM() {
+	/*private static void ejemploEscribirXSTREAM() {
 
 		try {
 
@@ -270,5 +342,5 @@ class Main {
 		} catch (JAXBException | IOException e) {
 			e.printStackTrace();
 		}
-	}
+	}*/
 }
