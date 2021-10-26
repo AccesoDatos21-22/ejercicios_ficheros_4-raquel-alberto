@@ -76,7 +76,7 @@ class Main {
 		medAl.guardar(med3);
 		
 		//buscar un medicamento
-		/*System.out.println(medAl.buscar(1));
+		System.out.println(medAl.buscar(1));
 		System.out.println(medAl.buscar(2));
 		System.out.println(medAl.buscar(3));
 		
@@ -92,7 +92,7 @@ class Main {
 		//buscar un medicamento
 		System.out.println(medAl.buscar(1));
 		System.out.println(medAl.buscar(2));
-		System.out.println(medAl.buscar(3));*/
+		System.out.println(medAl.buscar(3));
 		
 		//Clase farmacia, guardar medicamentos
 		farmacia1.guardar(med);
