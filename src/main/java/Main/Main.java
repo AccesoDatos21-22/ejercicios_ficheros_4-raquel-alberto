@@ -121,6 +121,23 @@ class Main {
 		pokemon.setPokemones(arrayPokemon);
 		pokemonJAXB.guardar(pokemon);
 		pokemonJAXB.leer();
+		
+		System.out.println("------ EJERCICIO FARMACIA XSTREAM -------");
+		
+		FarmaciaXSTREAM xStream = new FarmaciaXSTREAM();
+		
+		
+		Farmacia farmacia1 = new Farmacia();
+
+		farmacia1.guardar(new Medicamento(1122, "Ibuprofeno", 13.07, 10, 4444));
+		farmacia1.guardar(new Medicamento(1133, "Paracetamol", 10.01, 15, 9999));
+		farmacia1.guardar(new Medicamento(1144, "Dalsi", 6.32, 20, 6666));
+		farmacia1.guardar(new Medicamento(1155, "Espidifen", 20.50, 100, 1213));
+		
+
+		xStream.guardar(farmacia1);
+
+		xStream.leer();
 				
 	}
 	
